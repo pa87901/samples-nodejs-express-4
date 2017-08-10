@@ -141,7 +141,7 @@ function getResponseBody(headers, chunks, data) {
 // Middleware
 
 /**
- * For the /oauth2/v1/keys request, skip the proxy and return our mock JWKS.
+ * For the /oauth2/default/v1/keys request, skip the proxy and return our mock JWKS.
  */
 function handleKeys(req, res) {
   res.setHeader('Content-Type', 'application/json');
@@ -264,7 +264,7 @@ function transform(req, res, next) {
 const app = connect();
 const tapeDir = path.resolve(__dirname, 'tapes');
 
-app.use('/oauth2/v1/keys', handleKeys);
+app.use('/oauth2/default/v1/keys', handleKeys);
 app.use(transform);
 app.use(yakbak(config.proxied, { dirname: tapeDir, noRecord: !record }));
 

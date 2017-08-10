@@ -116,6 +116,14 @@ function logDiff(title, before, after) {
  */
 util.parseQuery = (urlStr) => {
   const parsed = url.parse(urlStr);
+  /** In the login flow, the param `fromURI` contains a URL similar to:
+   *         '/oauth2/v1/authorize/redirect?okta_key={key}'
+   * We want to extract the `okta_key` param from the nested fromURI url.
+   */
+  if (parsed.query && querystring.parse(parsed.query).fromURI) {
+    const parsedUri = url.parse(querystring.parse(parsed.query).fromURI);
+    return querystring.parse(parsedUri.query);
+  }
   return querystring.parse(parsed.query);
 };
 
@@ -283,9 +291,8 @@ function swapIdToken(idToken, data) {
   // Replace nonce with the nonce sent by the client
   claims.nonce = data.nonce;
 
-  // Replace issuer with this proxy server
-  claims.iss = data.iss;
-
+  // Replace issuer with this proxy server and the auth server
+  claims.iss = `${data.iss}/oauth2/default`;
   // Update expiration time to expire in 1 hour
   const exp = Math.floor(new Date().getTime() / 1000) + 3600;
   claims.exp = exp;

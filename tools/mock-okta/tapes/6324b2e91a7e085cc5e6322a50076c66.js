@@ -9,7 +9,7 @@ var path = require("path");
  * accept: * / *
  * accept-encoding: gzip
  * accept-language: en-US
- * cookie: DT=DI00gCQTZFlRa2lC9c1_CUR5A; t=default; JSESSIONID=4803575FC985D74993BDB42BD8194D15
+ * cookie: DT=DI09dwIAl6ESbSY9ZSYutykqA; t=default; JSESSIONID=69C1B054FE222DF6D4657F037DB1CFFF
  * cache-control: no-cache, no-store
  * pragma: no-cache
  */
@@ -24,7 +24,7 @@ module.exports = function (req, res) {
   res.setHeader("last-modified", "Mon, 07 Aug 2017 23:29:58 GMT");
   res.setHeader("content-type", "image/png");
   res.setHeader("content-length", "3141");
-  res.setHeader("date", "Thu, 10 Aug 2017 22:13:23 GMT");
+  res.setHeader("date", "Thu, 10 Aug 2017 23:14:49 GMT");
 
   res.setHeader("x-yakbak-tape", path.basename(__filename, ".js"));
 
