@@ -2,8 +2,8 @@
   "oktaSample": {
     "oidc": {
       "oktaUrl": "http://127.0.0.1:7777",
-      "clientId": "zYVNoNIeSwul32vpNiOz",
-      "clientSecret": "8UxQqreZu4WQBK-KIqKQItqvtv5UlWRlqI36l4sb",
+      "clientId": "0oaom8GeLzZeX7oYZ0g3",
+      "clientSecret": "XIZPoGtuyhu0V8MsQzGOsOSn6oSff3vO8Vp2nmLY",
       "redirectUri": "http://localhost:3000/authorization-code/callback"
     },
     "server": {
